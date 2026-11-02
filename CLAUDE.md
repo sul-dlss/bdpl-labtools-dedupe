@@ -24,16 +24,18 @@ is a copy of the hub's rules plus the app-specific section at the end.
 
 ## Who merges — the current phase
 
-**Until collaborators are added, Michael Olson (GitHub `mgolson-stanford`)
-merges every pull request, including his own.** GitHub's "Protect main"
-ruleset already requires a pull request for every change and blocks direct
-pushes, force pushes and deletions for everyone, admins included; the
-required-approval count is zero for this phase only.
+**Since 2026-11-01, every pull request needs one approving review from a
+collaborator other than its author, and a code owner's approval, before it
+can merge.** Sally DeBauche (`SallyDeBauche`) and Annie Schweikert
+(`aeschweik`) joined with write access that day and the "Protect main"
+ruleset was raised to match: one required approval, code-owner review,
+approval of the last push, review threads resolved, no bypass for anyone.
+Michael Olson (`mgolson-stanford`) is the code owner and remains the merge
+gate for anything he did not author; a PR of his own needs a colleague's
+approval first.
 
-**When the first collaborator is added**, the same day: raise the required
-approvals to one, turn on code-owner review and last-push approval in the
-ruleset, and change the sentence above. From then on nothing reaches `main`
-without Michael's explicit approval on the PR.
+The solo phase (2026-11-01, zero required approvals while the scaffolding
+PRs landed) is over. Claude never approves and never merges.
 
 ## Project-management files (keep these current)
 
