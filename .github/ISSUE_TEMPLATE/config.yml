@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Not sure which to pick?
+    url: https://github.com/sul-dlss/bdpl-labtools/blob/main/docs/raising-an-issue.md
+    about: A one-page guide to what an issue is for and how to write one.

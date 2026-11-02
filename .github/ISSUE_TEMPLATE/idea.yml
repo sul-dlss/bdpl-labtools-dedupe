@@ -1,0 +1,41 @@
+name: A tool or feature we need
+description: A lab task that takes too long, goes wrong, or could be automated.
+title: "Idea: "
+labels: ["idea"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        The best ideas start as a description of work that is slow or error-prone today. You do not need to propose how to build it.
+  - type: textarea
+    id: task
+    attributes:
+      label: The task today
+      description: What you do now, step by step, and roughly how long it takes or how often it goes wrong.
+      placeholder: After imaging a set of drives I open each one in Finder and compare folder sizes by eye to spot copies. An eight-drive accession takes most of a day.
+    validations:
+      required: true
+  - type: textarea
+    id: better
+    attributes:
+      label: What better would look like
+      description: What you would want to see or receive. A report? A warning? A list? What must it never do?
+      placeholder: A list of files that appear on more than one drive, with where each copy is, that I can sort. It must never delete or move anything.
+    validations:
+      required: true
+  - type: dropdown
+    id: how-often
+    attributes:
+      label: How often this comes up
+      options:
+        - Every accession
+        - Most months
+        - A few times a year
+        - Once so far
+    validations:
+      required: true
+  - type: textarea
+    id: anything-else
+    attributes:
+      label: Anything else
+      description: Related tools you have tried, documents that describe the current procedure, who else does this task.

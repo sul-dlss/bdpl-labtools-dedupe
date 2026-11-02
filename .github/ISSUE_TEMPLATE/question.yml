@@ -1,0 +1,12 @@
+name: A question
+description: Something you want to understand about the project, the rules or a tool.
+title: "Question: "
+labels: ["question"]
+body:
+  - type: textarea
+    id: question
+    attributes:
+      label: Your question
+      description: Ask it the way you would ask in the lab. If a document should have answered it and did not, name the document.
+    validations:
+      required: true
