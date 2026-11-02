@@ -48,6 +48,8 @@ without Michael's explicit approval on the PR.
   document and keep the status column honest: an executed plan and a parked
   plan look identical from the filename, and reading a parked plan as current
   is how something gets built twice.
+- **`.claude/agents/`** — agent charge documents. `docs-steward` runs on every
+  PR; add agents by PR and list them in `.claude/agents/README.md`.
 
 Typical flow: pick an item from `BACKLOG.md` → **create a feature branch** →
 build and verify → **open a pull request** → **Michael approves and merges** →
@@ -73,7 +75,12 @@ log the outcome in `PROGRESS.md` → move the item to `BACKLOG-done.md`.
    per-session token. Don't add new privileged paths.
 6. **Update docs with behavior changes**, in the same pull request. Keep any
    log or metadata mapping aligned with the lab's templates and controlled
-   vocabularies, verbatim.
+   vocabularies, verbatim. **Every pull request runs the `docs-steward`
+   agent before it is offered** (`.claude/agents/docs-steward.md`): it
+   reads the diff, fixes the documents the change makes stale on the same
+   branch, keeps `docs/README.md` honest, and writes its report into the PR
+   body under "Docs steward". A PR offered without that section is not
+   ready. (Michael's rule, 2026-11-01.)
 7. **Git workflow (mandatory — no exceptions).**
    - **Never commit or push directly to `main`.** All work happens on a
      branch (`feat/…`, `fix/…`, `docs/…`).
