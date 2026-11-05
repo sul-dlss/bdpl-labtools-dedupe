@@ -4,8 +4,15 @@ This file holds the working rules for this application, inherited from the BDPL 
 automatically at the start of every Claude session in this repository, and it
 is written for people too: a new contributor, human or AI, should be able to
 read it and work the way the lab works. **When a working rule changes, update
-this file.** The hub copy is the source of truth; this one adds an app-specific section
-at the end.
+this file.**
+
+**The rules shared by every BDPL LabTools repository are one block**, between
+the marker lines `BDPL-LABTOOLS-SHARED-RULES:BEGIN` and `:END` below,
+byte-identical to the hub's copy in `sul-dlss/bdpl-labtools` `CLAUDE.md`.
+Never edit between the markers here: a shared rule changes in the hub first,
+and a sync pull request opened from the hub carries it here. The "Rules
+drift" check on every pull request is red while the block differs from the
+hub's. Everything outside the markers is this repository's own.
 
 These rules were carried over from the BDPL LabKit (`da-capture-macos`),
 where each one was learned the hard way. The dates and incident notes are
@@ -19,8 +26,8 @@ archivists in the Born-Digital Preservation Lab at Stanford Libraries. Its
 job: identify duplicate files within and across accessions so archivists
 can decide what to keep, flag or remove before transfer. The family's hub,
 catalog and shared conventions live in `sul-dlss/bdpl-labtools`; this file
-is a copy of the hub's rules plus the app-specific section at the end.
-**When the hub's rules change, update this copy.**
+carries the hub's shared rules block plus the app-specific section at the
+end.
 
 ## Who merges — the current phase
 
@@ -34,6 +41,8 @@ required-approval count is zero for this phase only.
 approvals to one, turn on code-owner review and last-push approval in the
 ruleset, and change the sentence above. From then on nothing reaches `main`
 without Michael's explicit approval on the PR.
+
+<!-- BDPL-LABTOOLS-SHARED-RULES:BEGIN — shared by every repository in the family. Source: sul-dlss/bdpl-labtools CLAUDE.md. In an app repository, do not edit between these markers; change the hub and run tools/sync-rules.py. -->
 
 ## Project-management files (keep these current)
 
@@ -78,15 +87,22 @@ log the outcome in `PROGRESS.md` → move the item to `BACKLOG-done.md`.
    vocabularies, verbatim. **Every pull request runs the `docs-steward`
    agent before it is offered** (`.claude/agents/docs-steward.md`): it
    reads the diff, fixes the documents the change makes stale on the same
-   branch, keeps `docs/README.md` honest, and writes its report into the PR
-   body under "Docs steward". A PR offered without that section is not
-   ready. (Michael's rule, 2026-11-01.)
+   branch, keeps `docs/README.md` (and, in the hub, the catalog) honest, and
+   writes its report into the PR body under "Docs steward". A PR offered
+   without that section is not ready. (Michael's rule, 2026-11-01.)
 7. **Git workflow (mandatory — no exceptions).**
    - **Never commit or push directly to `main`.** All work happens on a
      branch (`feat/…`, `fix/…`, `docs/…`).
    - Changes reach `main` **only via a pull request** on GitHub.
    - Every PR is merged by Michael (see *Who merges*). Claude never merges,
      and never treats silence as approval.
+   - **Claude never closes a pull request or an issue**, not a superseded
+     one, not a stale one, not a duplicate. Closing is a disposition act and
+     is Michael's, exactly like merging. A superseded PR stays open, gets a
+     comment naming its replacement, and its own line in the list handed to
+     Michael: "superseded by #N; close it if you agree." (Michael's rule,
+     2026-11-03: two rebuilt PRs were closed as housekeeping and he found
+     them gone when he went to merge.)
    - **Do not circumvent this rule**: not to save time, not because a change
      seems trivial, not for any reason. No direct pushes, no force-pushes to
      `main`, no admin overrides, no self-merges by Claude. If the workflow
@@ -153,6 +169,8 @@ updates; private vulnerability reporting; read-only workflow tokens; CI
 running ruff, shellcheck, bandit and gitleaks on every PR; the "Protect
 main" ruleset. New `bdpl-labtools-<app>` repositories get the same set on
 creation. See `SECURITY.md` and `CONTRIBUTING.md`.
+
+<!-- BDPL-LABTOOLS-SHARED-RULES:END -->
 
 ## Dedupe-specific (fill in as decisions are made)
 

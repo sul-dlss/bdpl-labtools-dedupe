@@ -1,0 +1,10 @@
+name: Rules drift
+on:
+  pull_request:
+  push:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  drift:
+    uses: sul-dlss/bdpl-labtools/.github/workflows/rules-drift.yml@main
